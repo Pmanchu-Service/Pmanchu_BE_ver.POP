@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.pmanchu_be.global.error.exception.ErrorCode;
-import org.example.pmanchu_be.global.error.exception.GlobalException;
+import org.example.pmanchu_be.global.error.exception.PmanchuException;
 import org.springframework.http.MediaType;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -21,7 +21,7 @@ public class ExceptionFilter extends OncePerRequestFilter {
             HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException {
         try {
             filterChain.doFilter(request, response);
-        } catch (GlobalException e) {
+        } catch (PmanchuException e) {
             sendErrorMessage(response, e.getErrorCode());
         } catch (Exception e) {
             logger.error(e);

@@ -1,7 +1,7 @@
 package org.example.pmanchu_be.global.error;
 
 import org.example.pmanchu_be.global.error.exception.ErrorCode;
-import org.example.pmanchu_be.global.error.exception.GlobalException;
+import org.example.pmanchu_be.global.error.exception.PmanchuException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -13,10 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class PmanchuExceptionHandler {
 
-    @ExceptionHandler(GlobalException.class)
-    public ResponseEntity<ErrorResponse> customExceptionHandling(GlobalException e) {
+    @ExceptionHandler(PmanchuException.class)
+    public ResponseEntity<ErrorResponse> customExceptionHandling(PmanchuException e) {
         final ErrorCode errorCode = e.getErrorCode();
 
         return new ResponseEntity<>(

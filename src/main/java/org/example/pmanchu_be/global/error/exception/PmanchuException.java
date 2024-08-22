@@ -5,6 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class GlobalException extends RuntimeException {
+public class PmanchuException extends RuntimeException {
     private final ErrorCode errorCode;
 }
