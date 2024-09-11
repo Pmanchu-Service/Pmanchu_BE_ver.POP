@@ -41,6 +41,7 @@ erDiagram
         Long id PK
         Long project_id FK
         Long user_id FK
+        String role
     }
 
     Notification {
