@@ -12,7 +12,7 @@ erDiagram
         String contact "연락 수단"
     }
 
-    UserSpecialization {
+    UserMajor {
         Long id PK
         Long user_id FK
         String specialization
@@ -76,7 +76,7 @@ erDiagram
 
     User ||--o{ ProjectLike : "likes"
     User ||--o{ ProjectMember : "participates"
-    User ||--o{ UserSpecialization : "has specializations"
+    User ||--o{ UserMajor : "has specializations"
     User ||--o{ UserLink : "has links"
     Project ||--o{ Report : "creates"
     Project ||--o{ Plan : "creates"
