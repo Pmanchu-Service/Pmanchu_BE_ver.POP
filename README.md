@@ -8,7 +8,20 @@ erDiagram
         String email
         Long githubId UK
         String githubUsername UK
-        String role
+        String introduction
+        String contact "연락 수단"
+    }
+
+    UserSpecialization {
+        Long id PK
+        Long user_id FK
+        String specialization
+    }
+
+    UserLink {
+        Long id PK
+        Long user_id FK
+        String url
     }
 
     RefreshToken {
@@ -45,8 +58,28 @@ erDiagram
         String message
     }
 
+    Report {
+        Long id PK
+        Long project_id FK
+        String title
+        String content
+        Date created_at
+    }
+
+    Plan {
+        Long id PK
+        Long project_id FK
+        String title
+        String content
+        Date created_at
+    }
+
     User ||--o{ ProjectLike : "likes"
     User ||--o{ ProjectMember : "participates"
+    User ||--o{ UserSpecialization : "has specializations"
+    User ||--o{ UserLink : "has links"
+    Project ||--o{ Report : "creates"
+    Project ||--o{ Plan : "creates"
     Project ||--o{ ProjectLike : "liked by"
     Project ||--o{ ProjectMember : "has members"
     Project ||--o{ Notification : "triggers"
