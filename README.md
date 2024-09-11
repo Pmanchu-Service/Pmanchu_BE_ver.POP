@@ -24,12 +24,6 @@ erDiagram
         Long project_id FK
     }
 
-    ProjectBookmark {
-        Long id PK
-        Long user_id FK
-        Long project_id FK
-    }
-
     Project {
         Long id PK
         String title
@@ -52,10 +46,8 @@ erDiagram
     }
 
     User ||--o{ ProjectLike : "likes"
-    User ||--o{ ProjectBookmark : "bookmarks"
     User ||--o{ ProjectMember : "participates"
     Project ||--o{ ProjectLike : "liked by"
-    Project ||--o{ ProjectBookmark : "bookmarked by"
     Project ||--o{ ProjectMember : "has members"
     Project ||--o{ Notification : "triggers"
 ```
