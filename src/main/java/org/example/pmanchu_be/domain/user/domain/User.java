@@ -1,4 +1,4 @@
-package org.example.pmanchu_be.domain.user.domain.repository;
+package org.example.pmanchu_be.domain.user.domain;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
