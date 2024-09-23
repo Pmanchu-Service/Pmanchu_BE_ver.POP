@@ -12,7 +12,8 @@ import org.example.pmanchu_be.global.entity.BaseIdEntity;
 @SuperBuilder
 @Table(name = "tbl_projectmember")
 public class ProjectMember extends BaseIdEntity {
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private ProjectRole role;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private User user;
@@ -21,7 +22,7 @@ public class ProjectMember extends BaseIdEntity {
     private Project project;
 
     @Builder
-    public ProjectMember(String role, User user, Project project) {
+    public ProjectMember(ProjectRole role, User user, Project project) {
         this.role = role;
         this.user = user;
         this.project = project;
